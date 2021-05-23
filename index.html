@@ -42,5 +42,21 @@
             <li><a href="#"><img src="img/facebook.png"></a></li>
         </ul>
     </section>
+    <script>
+        function change_img(e){
+            let new_src = e.target.getAttribute('src');
+            console.log(new_src);
+            document.querySelector('.imgBox img').setAttribute('src', new_src)
+        }
+        function init(){
+            // >的意思是.all_img下面一層 若省略>則.all_img下所有的img都會吃到
+            document.querySelectorAll(".thumb img").forEach(
+                function(element){
+                    element.addEventListener('click', change_img);
+                }
+            )
+        }
+        window.addEventListener('load',init);
+    </script>
 </body>
 </html>
